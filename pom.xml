@@ -10,6 +10,8 @@
 
 	<name>world-demo-api</name>
 
+
+
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -31,6 +33,15 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				<cloudhubDeployment>
+				<username>klewis_dev</username>
+				<environment>Sandbox</environment>
+				<workers>1</workers>
+				<WorkerType>Micro</WorkerType>
+				<applicationName>worldtimezone-service</applicationName>
+				<password>CodeBlack2K</password>
+				<muleVersion>4.3.0</muleVersion>
+				</cloudhubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
