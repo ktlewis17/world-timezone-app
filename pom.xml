@@ -9,9 +9,6 @@
     <packaging>mule-application</packaging>
 
 	<name>world-demo-api</name>
-
-
-
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -34,12 +31,13 @@
 				<extensions>true</extensions>
 				<configuration>
 				<cloudHubDeployment>
-				<username>klewis_dev</username>
-				<password>CodeBlack2k</password>
-				<environment>Sandbox</environment>
-				<workers>1</workers>
-				<workerType>Micro</workerType>
-				<applicationName>worldtimezone-service</applicationName>
+					<uri>https://anypoint.mulesoft.com</uri>
+					<username>klewis_dev</username>
+					<password>CodeBlack2k</password>
+					<environment>Sandbox</environment>
+					<workers>1</workers>
+					<workerType>Micro</workerType>
+					<applicationName>worldtimezone-service-practice-1</applicationName>
 				<muleVersion>4.3.0</muleVersion>
 				</cloudHubDeployment>
 				</configuration>
