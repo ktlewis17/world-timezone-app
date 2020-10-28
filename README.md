@@ -13,4 +13,9 @@ To view other timezones, change {region) and {city} http://worldtimezone-service
 * Europe/Berlin
 * Pacific/Fiji 
 
-
+#### Technologies and Tools used: ####
+* WorldTimeAPI 
+* Anypoint Studio Mule 4
+* Cloudhub
+* Jenkins 
+* Maven 
