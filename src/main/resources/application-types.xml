@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="timezoneresults" format="json">
+      <types:shape format="weave" example="examples/mule-artifact-1.json"><![CDATA[%dw 2.0
+
+type timezoneresults = {|
+  datetime: String, 
+  day_of_week: Number {"typeId": "int"}, 
+  day_of_year: Number {"typeId": "int"}, 
+  week_number: Number {"typeId": "int"}, 
+  dst: Boolean, 
+  dst_from: Null, 
+  dst_offset: Number {"typeId": "int"}, 
+  dst_until: Null, 
+  raw_offset: Number {"typeId": "int"}, 
+  timezone: String, 
+  unixtime: Number {"typeId": "int"}, 
+  utc_datetime: String, 
+  utc_offset: String, 
+  abbreviation: String
+|} {"example": "{\\\"datetime\\\":\\\"2020-10-12T07:36:37.000532+05:30\\\",\\\"day_of_week\\\":1,\\\"day_of_year\\\":286,\\\"week_number\\\":42,\\\"dst\\\":false,\\\"dst_from\\\":null,\\\"dst_offset\\\":0,\\\"dst_until\\\":null,\\\"raw_offset\\\":19800,\\\"timezone\\\":\\\"Asia\\/Kolkata\\\",\\\"unixtime\\\":1602468397,\\\"utc_datetime\\\":\\\"2020-10-12T02:06:37.000532+00:00\\\",\\\"utc_offset\\\":\\\"+05:30\\\",\\\"abbreviation\\\":\\\"IST\\\"}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#5752e8f6-3f9c-49f8-95ad-8b8a52187987">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="timezoneresults"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#af484ce1-d4b5-40ec-9651-7fcc2cfb8f9a"/>
+  <types:enrichment select="#0aaac686-a22d-43f2-922b-2d3b47e20e6b"/>
+</types:mule>
