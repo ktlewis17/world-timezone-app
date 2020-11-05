@@ -53,7 +53,8 @@ timeZoneInfo: {
 	datetime: payload.datetime,
 	weekNumber: payload.week_number,
 	dayOfYr: payload.day_of_year as String,
-	dayOfWeek: payload.day_of_week as String
+	dayOfWeek: payload.day_of_week as String,
+	dst: payload.dst as Boolean
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
