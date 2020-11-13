@@ -1,6 +1,6 @@
 http:   
    port: "8081"
    
-cloudHubDeployment:
-          username: "klewis_dev"
-          password: "CodeBlack2k"
+
+username: "klewis_dev"
+password: "CodeBlack2k"
