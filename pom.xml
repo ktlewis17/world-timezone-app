@@ -95,12 +95,14 @@
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mule.distributions/mule-runtime-impl-bom -->
+      <!-- https://mvnrepository.com/artifact/com.mulesoft.munit/munit-runtime -->
 <dependency>
-    <groupId>org.mule.distributions</groupId>
-    <artifactId>mule-runtime-impl-bom</artifactId>
-    <version>4.2.2-hf3</version>
+    <groupId>com.mulesoft.munit</groupId>
+    <artifactId>munit-runtime</artifactId>
+    <version>2.2.0-ALPHA</version>
+    <type>pom</type>
 </dependency>
+
         
     </dependencies>
 
