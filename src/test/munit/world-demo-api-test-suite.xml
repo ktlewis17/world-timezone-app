@@ -19,6 +19,11 @@
 			<munit-tools:assert-that doc:name="Assert that" doc:id="146c2f0c-7365-4458-87b8-a2d03312c9e7" message="Payload is null" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
 		</munit:validation>
 	</munit:test>
+	<munit:test name="world-demo-api-test-suite-world-demo-apiFlowTest1" doc:id="1a8fd7f5-f8f6-44c4-8e28-077bcc72be62" description="Test" expectedErrorType="CONNECTIVITY">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to world-demo-apiFlow" doc:id="80b03b61-3eaa-4442-b1ec-024a731ab552" name="world-demo-apiFlow"/>
+		</munit:execution>
+	</munit:test>
 
 
 </mule>

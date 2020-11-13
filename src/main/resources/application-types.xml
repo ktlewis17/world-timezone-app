@@ -31,8 +31,50 @@ type timezoneresults = {|
           <types:payload type="timezoneresults"/>
         </types:message>
       </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="timezoneresults"/>
+        </types:message>
+      </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
   <types:enrichment select="#af484ce1-d4b5-40ec-9651-7fcc2cfb8f9a"/>
   <types:enrichment select="#0aaac686-a22d-43f2-922b-2d3b47e20e6b"/>
+  <types:enrichment select="#0df199c9-28f1-40c6-947c-80217cb91b07">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:attributes type="timezoneresults"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:attributes type="timezoneresults"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#9cccd1dd-430b-4a92-b6d3-3a54f6efe577">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:attributes type="timezoneresults"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:attributes type="timezoneresults"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#14636857-892e-4987-a2f4-5cb8534e3949">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="timezoneresults"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
 </types:mule>

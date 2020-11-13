@@ -5,14 +5,10 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="375b3b95-0317-490c-84b6-de59cceea816" basePath="/getTimeZone" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
-	</http:listener-config>
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="f3c13ba3-ddb3-48a8-a000-7b1d7369ad5f" basePath="/api/" >
-		<http:request-connection host="worldtimeapi.org" port="80"/>
-	</http:request-config>
+
+	
 	<flow name="world-demo-apiFlow" doc:id="01da5b8c-845e-440d-9e98-a28bf0f5885f" >
-		<http:listener doc:name="Listener" doc:id="14636857-892e-4987-a2f4-5cb8534e3949" config-ref="HTTP_Listener_config" path="/{region}/{city}">
+		<http:listener doc:name="Listener" doc:id="14636857-892e-4987-a2f4-5cb8534e3949" config-ref="HTTP_Listener_config" path="/timezone/{region}/{city}">
 			
 		</http:listener>
 		<logger level="INFO" doc:name="Logger" doc:id="44416bee-e1d4-482c-a59c-c94831cadbc4" message="#[(attributes.uriParams.region default '') ++ (attributes.city default '')]"/>
@@ -36,11 +32,11 @@ output application/json
 	<flow name="world-demo-apiFlow2" doc:id="da720c09-a2ad-4bfa-99fe-a3861fab03f0" >
 		<set-variable value="#[attributes.uriParams.region]" doc:name="Region Variable" doc:id="0df199c9-28f1-40c6-947c-80217cb91b07" variableName="regionVar" />
 		<set-variable value="#[attributes.uriParams.city]" doc:name="City Variable" doc:id="9cccd1dd-430b-4a92-b6d3-3a54f6efe577" variableName="cityVar"/>
-		<logger level="INFO" doc:name="Logger" doc:id="495c04bf-1e1f-4628-93eb-f7b70616f517" message="#['Region Value: '++ (vars.regionVar default '') ++ 'City Value : ' ++ (vars.cityVar default '')]"/>
-		<http:request method="GET" doc:name="Request" doc:id="e84d21d1-bc09-45c8-b299-84ac14cc01df" path="/{region}/{city}" config-ref="HTTP_Request_configuration" sendCorrelationId="NEVER">
+		<logger level="INFO" doc:name="Logger" doc:id="495c04bf-1e1f-4628-93eb-f7b70616f517" message="#['Region Value: ' ++ (vars.regionVar default ' ') ++ 'City Value: ' ++ (vars.cityVar default ' ')]"/>
+		<http:request method="GET" doc:name="Request" doc:id="e84d21d1-bc09-45c8-b299-84ac14cc01df" path="/{region}/{city}" config-ref="HTTP_Request_configuration">
+			<ee:repeatable-file-store-stream inMemorySize="1024" />
 			<http:uri-params ><![CDATA[#[{
-	region:vars.regionVar,
-	city:vars.cityVar
+	region:vars.regionVar,city:vars.cityVar
 }]]]></http:uri-params>
 		</http:request>
 		<ee:transform doc:name="Transform Message" doc:id="5752e8f6-3f9c-49f8-95ad-8b8a52187987" >
