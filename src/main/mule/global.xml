@@ -11,6 +11,7 @@
 	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="69efa8a5-c153-411a-aaab-a74a432b49ab" basePath="/api">
 		<http:request-connection host="worldtimeapi.org" port="80"/>
 	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="916da76c-58b8-4aff-b11d-890b84236e45" file="config.yaml" />
 	
 	
 	
